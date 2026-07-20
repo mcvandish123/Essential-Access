@@ -21,3 +21,14 @@ show();
 console.log(globalVar);
 console.log(globalLet);
 console.log(globalConst);
+
+
+/*if else statement**/
+
+let age = 25
+
+if (age < 26) {
+  console.log("you are an adult")
+} else {
+  console.log("yo are not an adult")
+}
