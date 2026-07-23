@@ -27,9 +27,20 @@ function showbooks() {
     <p><strong>Book Name:</strong> ${book.name}</p>
     <p><strong>Book Author:</strong> ${book.authorName}</p>
     <p><strong>Book Description:</strong> ${book.bookDescription}</p>
-    <p><strong>Book Number:</strong> ${book.pagesNumber}</p>`
+    <p><strong>Book Number:</strong> ${book.pagesNumber}</p>
+    <button onclick="editbook(${index})">Edit</button>
+    <button onclick="deletebook(${index})">Delete</button>`
   );
   document.getElementById('books').innerHTML = booksDiv.join('');
+}
+
+function deletebook(index) {
+  document.getElementById('bookName').value = '';
+  document.getElementById('authorName').value = '';
+  document.getElementById('bookDescription').value = '';
+  document.getElementById('pagesNumber').value = '';
+  books.splice(index, 1);
+  showbooks();
 }
 
 function editbook(index) {
