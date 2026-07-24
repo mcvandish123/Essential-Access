@@ -15,22 +15,17 @@ function startTest() {
 }
 
 function endTest() {
-  if (!startTime) {
-    document.getElementById('output').innerHTML = "<p>Please start the test first.</p>";
-    return;
-  }
-
   endTime = new Date().getTime();
-
+  
   document.getElementById('userInput').readOnly = true;
 
-  var timeElapsed = (endTime - startTime) / 1000;
+  var timeElapsed = (endTime - startTime) / 1000
   var userTypedText = document.getElementById('userInput').value;
 
   var typedWords = userTypedText.split(/\s+/).filter(function (word) {
     return word !== "";
   }).length;
-  var lengthWords = userTypedText.length;
+  var lengthWords = userTypedText.length
 
   var wpm = 0;
 
@@ -42,9 +37,6 @@ function endTest() {
   outputDiv.innerHTML = "<h2>Typing Test Results:</h2>" +
     "<p>Total Length: " + lengthWords + "</p>" +
     "<p>Words Typed: " + typedWords + "</p>" +
-    "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
+    "<p>Time Elapsed: " + timeElapsed.toFixed(2) + "seconds</p>" +
     "<p>Words Per Minute (WPM): " + wpm + "</p>";
-
-  // reset startTime so subsequent accidental End clicks are handled
-  startTime = null;
 }
